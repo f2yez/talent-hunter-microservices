@@ -1,0 +1,78 @@
+.width-100{
+    width: 100%;
+}
+.form-containerr{
+    height: 100%;
+}
+.update{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.updateForm{
+    flex-basis: 61%;
+}
+.updateForm .update >div{
+    flex-basis: 50%;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.submitBut{
+    transform: translateX(50%);
+    position: absolute;
+    bottom: 30px;
+    left: 35%;
+    width: 200px;
+    margin: auto;
+}
+
+.position-relative{
+    position: relative;
+}
+.YearEstablishes{
+    margin-bottom: 40px;
+}
+.size{
+    text-transform: capitalize;
+    font-size: 25px;
+}
+.small{
+    font-size: 11px;
+    display: flex;
+    text-align: left;
+    color: #ccc;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    z-index: 1;
+    color: #fff;
+    background: #001529;
+    border-color: #001529;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before {
+    background-color: #001529;
+}
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover {
+    color: #fff;
+    border-color: #001529;
+}
+.submitButCompany{
+    transform: translateX(50%);
+}
+.noOfEmployees{
+    display: flex;
+}
+
+@media (max-width:1200px) {
+    .updateForm{
+        flex-basis: 100%;
+    }
+    .updateForm .update >div{
+        flex-basis: 100%;
+    }
+    
+}
+
+.ant-upload-picture-card-wrapper {
+    text-align: center;
+}

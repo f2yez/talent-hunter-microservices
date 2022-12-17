@@ -1,0 +1,43 @@
+.layout {
+  flex: 1;
+  min-height: 100vh;
+}
+.headerStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerStyle .ant-menu {
+  flex: 1;
+}
+.profileImg {
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid white;
+}
+.bottumDrob{
+  outline: none;
+  border: none;
+  background: inherit;
+  box-shadow: none;
+  color: white;
+}
+.bottumDrob:hover{
+  background: inherit;
+  box-shadow: none;
+  color: white;
+  font-weight: bold;
+}
+.bottumDrob:checked {
+  background: inherit;
+  box-shadow: none;
+  color: white;
+}
+.width-500{
+  width: 500px;
+}
+
+.ant-list-item-meta {
+  text-align: left;
+}

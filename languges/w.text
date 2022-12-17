@@ -1,0 +1,4 @@
+npx sequelize-cli model:generate --name Language --attributes name:string,parentId:integer
+
+
+npx sequelize-cli seed:generate --name demo-Language

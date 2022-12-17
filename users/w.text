@@ -1,0 +1,4 @@
+npx sequelize-cli model:generate --name User --attributes fullName:string,userName:string,email:string,password:string,type:string,planId:integer,phone:string,profileId:integer,description:string,country:string,image:string,vitrified:boolean
+
+
+npx sequelize-cli seed:generate --name demo-user

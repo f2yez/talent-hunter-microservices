@@ -1,0 +1,13 @@
+npx sequelize-cli model:generate --name Skills --attributes name:string,parentId:integer
+
+npx sequelize-cli model:generate --name Experience --attributes company:string,position:string,Description:string,parentId:integer,startMonthDate:date,startYearDate:date,EndMonthDate:date,EndYearDate:date  
+
+npx sequelize-cli model:generate --name Education --attributes degree:integer,university:string,parentId:integer,startDate:date,EndDate:date  
+
+
+
+npx sequelize-cli seed:generate --name demo-Skills
+
+npx sequelize-cli seed:generate --name demo-Experience
+
+npx sequelize-cli seed:generate --name demo-Education

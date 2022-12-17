@@ -1,0 +1,4 @@
+npx sequelize-cli model:generate --name Talent --attributes birthData:date,jobTyp:string,Availability:string,experienceLevel:string
+
+
+npx sequelize-cli seed:generate --name demo-Talent

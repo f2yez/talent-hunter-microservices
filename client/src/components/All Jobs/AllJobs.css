@@ -1,0 +1,7 @@
+.site-card-border-less-wrapper {
+    padding: 30px;
+    background: #ececec;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+  }

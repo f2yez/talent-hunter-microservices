@@ -1,0 +1,1 @@
+npx sequelize-cli model:generate --name Job --attributes companyIdy:integer,title:string,description:string,JobType:string,level:string,skills:string,experience:string,min:INTEGER,max:INTEGER,currency:string,JobLocation:string,IsRemotly:BOOLEAN,draft:BOOLEAN,releaseJob:BOOLEAN,approve:BOOLEAN,privacy:BOOLEAN

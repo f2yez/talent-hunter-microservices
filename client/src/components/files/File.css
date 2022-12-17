@@ -1,0 +1,11 @@
+.ant-upload-list-picture-card-container{
+    display: block;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+}
+.ant-upload.ant-upload-select-picture-card{
+    margin: auto;
+    margin-top: 10px;
+    height:40px
+}

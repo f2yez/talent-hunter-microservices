@@ -1,0 +1,87 @@
+.home-banner {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: url(https://gw.alipayobjects.com/zos/basement_prod/a8cf2dfe-ff6a-4a2e-ab73-f72dced0df99.svg);
+  background-size: cover;
+}
+.home-banner .ant-btn {
+  height: auto;
+  padding: 8px 24px;
+  color: #0170fe;
+  font-size: 14px;
+  border-color: #0170fe;
+}
+
+.home-banner-holder {
+  position: relative;
+  z-index: 1;
+  margin-top: 160px;
+}
+.home-banner-content {
+  margin: 0 auto;
+  padding: 0 16px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.home-card-logo {
+  height: 90px;
+  vertical-align: top;
+}
+
+.home-card-logo {
+  position: relative;
+  display: inline-block;
+  max-width: 80%;
+  margin: 0 32px;
+  cursor: pointer;
+}
+.home-card-logo h1 {
+  font-size: 64px;
+}
+.home-banner-content p {
+  margin: 16px 0 0;
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.home-banner-content-operations {
+  margin-top: 40px;
+  white-space: nowrap;
+}
+
+.home-banner-content-operations a {
+  margin: 0 8px;
+}
+
+.home-banner-content-operations a span {
+  margin-top: 6px;
+}
+
+.home-banner-content-operations .ant-btn.ant-btn-primary {
+  color: #fff;
+  background: #0170fe;
+}
+
+.home-banner-content-operations .ant-btn {
+  font-size: 16px;
+}
+
+.home-banner .have-account {
+  margin-top: 2.5rem;
+  display: block;
+  font-size: 16px;
+}
+
+@media (min-width: 576px) {
+  .home-banner-holder {
+    margin-top: 130px;
+  }
+  .home-banner-content {
+    font-size: 16px;
+  }
+  .home-banner-content p {
+    margin-top: 24px;
+  }
+}

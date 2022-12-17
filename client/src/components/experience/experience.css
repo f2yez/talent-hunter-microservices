@@ -1,0 +1,7 @@
+.position-relative{
+    position: relative;
+}
+.experience{
+    flex-basis: 100%;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,9 @@
+.flex-baise{
+    flex-basis: 100%;
+}
+.h-auto{
+    height: auto !important;
+}
+.job-form-2{
+    flex-basis: 70%;
+}

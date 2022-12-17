@@ -1,0 +1,238 @@
+version: '3.9'
+
+services:
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    container_name: moe-mysql-app
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+
+  users:
+    build:
+      dockerfile: Dockerfile
+      context: ./users
+    container_name: users
+    ports:
+      - "5001:5001"
+      - "9001:9001"
+    restart: always
+    environment:
+      - frontEnd=http://localhost:3000
+      - SKLLIS_URL=http://skills:5006
+      - LANGUAGES_URL=http://languages:5008
+      - PLAN_URL=http://plans:5005
+      - COMPANY_URL=http://company:5002
+      - TALENT_URL=http://talent:5003
+      - JOB_URL=http://jobs:5009
+      - key=microservicing
+    volumes:
+      - ./users:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9001
+      - server.js
+    depends_on:
+      - mysql
+
+  company:
+    build:
+      dockerfile: Dockerfile
+      context: ./company
+    container_name: company
+    ports:
+      - "5002:5002"
+      - "9002:9002"
+    restart: always
+    environment:
+      - COMPAND_URL=http://compand:5007
+      - key=microservicing
+    volumes:
+      - ./company:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9002
+      - server.js
+    depends_on:
+      - mysql
+
+  talent:
+    build:
+      dockerfile: Dockerfile
+      context: ./talent
+    container_name: talent
+    ports:
+      - "5003:5003"
+      - "9003:9003"
+    restart: always
+    volumes:
+      - ./talent:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9003
+      - server.js
+    depends_on:
+      - mysql
+
+  files:
+    build:
+      dockerfile: Dockerfile
+      context: ./files
+    container_name: files
+    ports:
+      - "5004:5004"
+      - "9009:9009"
+    restart: always
+    environment:
+      - USERS_URL=http://users:5001
+      - key=microservicing
+    volumes:
+      - ./files:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9009
+      - server.js
+    depends_on:
+      - mysql
+
+  plans:
+    build:
+      dockerfile: Dockerfile
+      context: ./plans
+    container_name: plans
+    ports:
+      - "5005:5005"
+      - "9005:9005"
+    restart: always
+    volumes:
+      - ./plans:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9005
+      - server.js
+    depends_on:
+      - mysql
+
+  skills:
+    build:
+      dockerfile: Dockerfile
+      context: ./skills
+    container_name: skills
+    ports:
+      - "5006:5006"
+      - "9006:9006"
+    restart: always
+    volumes:
+      - ./skills:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9006
+      - server.js
+    depends_on:
+      - mysql
+
+  compand:
+    build:
+      dockerfile: Dockerfile
+      context: ./compand
+    container_name: compand
+    ports:
+      - "5007:5007"
+      - "9007:9007"
+    restart: always
+    volumes:
+      - ./compand:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - JOB_URL=http://jobs:5009
+      - USERS_URL=http://users:5001
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9007
+      - server.js
+    depends_on:
+      - mysql
+
+  languages:
+    build:
+      dockerfile: Dockerfile
+      context: ./languges
+    container_name: languages
+    ports:
+      - "5008:5008"
+      - "9008:9008"
+    restart: always
+    volumes:
+      - ./languges:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9008
+      - server.js
+    depends_on:
+      - mysql
+
+  jobs:
+    build:
+      dockerfile: Dockerfile
+      context: ./jobs
+    container_name: jobs
+    ports:
+      - "5009:5009"
+      - "9004:9004"
+    restart: always
+    environment:
+      - key=microservicing
+      - USERS_URL=http://users:5001
+      - COMPAND_URL= http://compand:5007
+    volumes:
+      - ./jobs:/usr/src/app
+      - /usr/src/app/node_modules
+    command:
+      - nodemon
+      - --inspect=0.0.0.0:9004
+      - server.js
+    depends_on:
+      - mysql
+
+  nginx-proxy:
+    build:
+      dockerfile: Dockerfile
+      context: ./proxy
+    restart: always
+    depends_on:
+      - users
+      - talent
+      - company
+      - files
+      - plans
+      - skills
+      - compand
+      - languages
+    ports:
+      - "5000:5000"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    restart: always
+    ports:
+      - "30002:80"
+    environment:
+      - PMA_HOST=moe-mysql-app
+      - PMA_PORT= 3306
+    volumes:
+      - /sessions
+    container_name: moe-phpmyadmin-app

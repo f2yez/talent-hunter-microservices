@@ -1,0 +1,17 @@
+.flex{
+    display :flex;
+    align-items: baseline;
+}
+.m-r-10{
+    margin-right: 10px;
+}
+.m-t{
+    margin-top: 20px;
+}
+.job-form{
+    flex-basis: 50%;
+}
+.img-res{
+    max-width: 50%;
+    height: auto;
+}

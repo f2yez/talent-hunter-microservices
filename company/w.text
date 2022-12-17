@@ -1,0 +1,5 @@
+npx sequelize-cli model:generate --name Company --attributes website:string,address:string,noOfEmployees:integer,typeOfBusiness:string,YearEstablishes:integer
+
+
+
+npx sequelize-cli seed:generate --name demo-Company
